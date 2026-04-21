@@ -49,6 +49,8 @@ def area(gr:GlobeRect):
     return a
 
 def emissions_per_square_km(rc:RegionCondition) -> float:
+    if area(rc.region.rect) == 0:
+        return 0.0
     return rc.ghg_rate / area(rc.region.rect)
 
 def densest(rc_list:list[RegionCondition]) -> str:
