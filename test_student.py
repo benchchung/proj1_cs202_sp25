@@ -12,6 +12,11 @@ class TestRegionFunctions(unittest.TestCase):
     def test_holder(self):
         pass
 
+    def test_tokyo_emissionpercapita(self):
+        self.assertAlmostEqual(emissions_per_capita(tokyo), 60000000/14000000, places=3)
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

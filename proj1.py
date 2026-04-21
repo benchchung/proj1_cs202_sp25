@@ -31,3 +31,12 @@ slo = RegionCondition(Region(GlobeRect(35.05, 35.55, -120.90, -120.20), "San Lui
 
 region_conditions = [seattle, tokyo, maldives, slo]
 
+def emissions_per_capita(rc: RegionCondition) -> float:
+    if rc.pop == 0:
+        return 0.0
+    return rc.ghg_rate/rc.pop
+
+def area(gr:GlobeRect):
+    def degree_converter(deg:float) -> float: #degree to radian helper function
+        pass
+    pass
