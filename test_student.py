@@ -24,5 +24,9 @@ class TestRegionFunctions(unittest.TestCase):
         maldives_area = area(maldives.region.rect)
         self.assertAlmostEqual(emissions_per_square_km(maldives), 2500000/maldives_area, places = 5)
 
+    def test_densest_of_the_four(self):
+        self.assertEqual(densest(region_conditions), "Tokyo")
+
+
 if __name__ == '__main__':
     unittest.main()

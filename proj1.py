@@ -50,3 +50,6 @@ def area(gr:GlobeRect):
 
 def emissions_per_square_km(rc:RegionCondition) -> float:
     return rc.ghg_rate / area(rc.region.rect)
+
+def densest(rc_list:list[RegionCondition]) -> str:
+    pass
