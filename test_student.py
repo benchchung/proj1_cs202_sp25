@@ -28,7 +28,7 @@ class TestRegionFunctions(unittest.TestCase):
         self.assertEqual(densest(region_conditions), "Tokyo")
 
     def test_slo_environment_growth_rate(self):
-        pass
-
+        updatedSloData = RegionCondition(Region(GlobeRect(35.05, 35.55, -120.90, -120.20), "San Luis Obispo", "mountains"), 2031, math.floor((47000*(1 + 0.0005)**5)), math.floor((47000*(1 + 0.0005)**5)) * (200000/47000))
+        self.assertEqual(project_condition(slo, 5), updatedSloData)
 if __name__ == '__main__':
     unittest.main()
