@@ -49,4 +49,4 @@ def area(gr:GlobeRect):
     return a
 
 def emissions_per_square_km(rc:RegionCondition) -> float:
-    pass
+    return rc.ghg_rate / area(rc.region.rect)

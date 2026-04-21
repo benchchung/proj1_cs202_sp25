@@ -21,7 +21,8 @@ class TestRegionFunctions(unittest.TestCase):
         places=5)
 
     def test_maldives_emissionperkm(self):
-        pass
+        maldives_area = area(maldives.region.rect)
+        self.assertAlmostEqual(emissions_per_square_km(maldives), 2500000/maldives_area, places = 5)
 
 if __name__ == '__main__':
     unittest.main()
