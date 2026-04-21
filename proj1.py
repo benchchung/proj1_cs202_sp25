@@ -69,4 +69,11 @@ def densest(rc_list:list[RegionCondition]) -> str:
     return density_checker(rc_list).region.name
 
 def project_condition(rc:RegionCondition, years:int) -> RegionCondition:
-    pass
+    if rc.region.terrain == "ocean":
+        pass
+    if rc.region.terrain == "mountains":
+        pass
+    if rc.region.terrain == "forest":
+        pass
+    if rc.region.terrain == "other":
+        pass
