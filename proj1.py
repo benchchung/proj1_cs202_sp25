@@ -52,4 +52,17 @@ def emissions_per_square_km(rc:RegionCondition) -> float:
     return rc.ghg_rate / area(rc.region.rect)
 
 def densest(rc_list:list[RegionCondition]) -> str:
-    pass
+    if len(rc_list) == 0:
+        raise IndexError("List is empty.")
+
+    def density_checker(rc_list:list[RegionCondition]) -> RegionCondition:
+        if len(rc_list) == 1:
+            return rc_list[0].region.name
+
+    current_density = (rc_list[0].pop / area(rc_list[0].region.rect))
+    subMax = densest(rc_list[1:])
+
+    if current_density > subMax[1]:
+        return rc_list[0].region.name
+    else:
+        return subMax
