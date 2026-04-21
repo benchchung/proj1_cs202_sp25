@@ -68,3 +68,5 @@ def densest(rc_list:list[RegionCondition]) -> str:
 
     return density_checker(rc_list).region.name
 
+def project_condition(rc:RegionCondition, years:int) -> RegionCondition:
+    pass

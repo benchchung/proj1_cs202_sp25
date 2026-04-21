@@ -27,6 +27,8 @@ class TestRegionFunctions(unittest.TestCase):
     def test_densest_of_the_four(self):
         self.assertEqual(densest(region_conditions), "Tokyo")
 
+    def test_slo_environment_growth_rate(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()
