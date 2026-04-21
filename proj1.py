@@ -70,10 +70,17 @@ def densest(rc_list:list[RegionCondition]) -> str:
 
 def project_condition(rc:RegionCondition, years:int) -> RegionCondition:
     if rc.region.terrain == "ocean":
-        pass
+        newPopulation = math.floor(rc.pop * (1 + 0.0001)**years)
+        return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate/rc.pop)
     if rc.region.terrain == "mountains":
-        pass
+        newPopulation = math.floor(rc.pop * (1 + 0.0005) ** years)
+        return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
     if rc.region.terrain == "forest":
-        pass
+        newPopulation = math.floor(rc.pop * (1 	- 0.00001) ** years)
+        return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
     if rc.region.terrain == "other":
-        pass
+        newPopulation = math.floor(rc.pop * (1 + 0.0003) ** years)
+        return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
+
+    newPopulation = math.floor(rc.pop * (1 + 0.0003) ** years) #this is essentially the "other" terrain growth rate but applied to non-typical terrain types
+    return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
