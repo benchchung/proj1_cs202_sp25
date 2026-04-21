@@ -1,6 +1,7 @@
 #complete your tasks in this file
 from dataclasses import dataclass
 from typing import Any, TypeAlias
+import math
 
 degrees:TypeAlias = float
 
@@ -37,6 +38,7 @@ def emissions_per_capita(rc: RegionCondition) -> float:
     return rc.ghg_rate/rc.pop
 
 def area(gr:GlobeRect):
-    def degree_converter(deg:float) -> float: #degree to radian helper function
-        pass
-    pass
+    def deg_con(deg:float) -> float: #degree to radian helper function
+        return deg * (math.pi/180)
+    a = (6378.1**2 * abs(deg_con(gr.east_long) - deg_con(gr.west_long)) * abs(math.sin(deg_con(gr.hi_lat)) - math.sin(deg_con(gr.lo_lat))))
+    return a

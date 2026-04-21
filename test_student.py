@@ -1,4 +1,5 @@
 import unittest
+import math
 from proj1 import *
 #proj1.py should contain your data class and function definitions
 #these do not contribute positivly to your grade. 
@@ -15,7 +16,9 @@ class TestRegionFunctions(unittest.TestCase):
     def test_tokyo_emissionpercapita(self):
         self.assertAlmostEqual(emissions_per_capita(tokyo), 60000000/14000000, places=3)
 
-
+    def test_seattle_area(self):
+        self.assertAlmostEqual(area(seattle.region.rect), (6378.1**2) * abs((-122.224 * (math.pi/180)) - (-122.459 * (math.pi/180))) * abs(math.sin(47.734 * math.pi/180) - math.sin(47.495 * math.pi/180)),
+        places=5)
 
 
 if __name__ == '__main__':
