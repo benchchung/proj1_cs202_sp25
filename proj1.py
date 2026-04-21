@@ -74,13 +74,13 @@ def project_condition(rc:RegionCondition, years:int) -> RegionCondition:
     if rc.region.terrain == "ocean":
         newPopulation = math.floor(rc.pop * (1 + 0.0001)**years)
         return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate/rc.pop)
-    if rc.region.terrain == "mountains":
+    elif rc.region.terrain == "mountains":
         newPopulation = math.floor(rc.pop * (1 + 0.0005) ** years)
         return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
-    if rc.region.terrain == "forest":
+    elif rc.region.terrain == "forest":
         newPopulation = math.floor(rc.pop * (1 	- 0.00001) ** years)
         return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
-    if rc.region.terrain == "other":
+    elif rc.region.terrain == "other":
         newPopulation = math.floor(rc.pop * (1 + 0.0003) ** years)
         return RegionCondition(rc.region, rc.year + years, newPopulation, newPopulation * rc.ghg_rate / rc.pop)
 
