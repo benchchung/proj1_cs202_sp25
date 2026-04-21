@@ -20,6 +20,8 @@ class TestRegionFunctions(unittest.TestCase):
         self.assertAlmostEqual(area(seattle.region.rect), (6378.1**2) * abs((-122.224 * (math.pi/180)) - (-122.459 * (math.pi/180))) * abs(math.sin(47.734 * math.pi/180) - math.sin(47.495 * math.pi/180)),
         places=5)
 
+    def test_maldives_emissionperkm(self):
+        pass
 
 if __name__ == '__main__':
     unittest.main()

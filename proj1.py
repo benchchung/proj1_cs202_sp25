@@ -40,5 +40,13 @@ def emissions_per_capita(rc: RegionCondition) -> float:
 def area(gr:GlobeRect):
     def deg_con(deg:float) -> float: #degree to radian helper function
         return deg * (math.pi/180)
-    a = (6378.1**2 * abs(deg_con(gr.east_long) - deg_con(gr.west_long)) * abs(math.sin(deg_con(gr.hi_lat)) - math.sin(deg_con(gr.lo_lat))))
+
+    wrap_around_regulator = deg_con(gr.east_long) - deg_con(gr.west_long)
+    if wrap_around_regulator < 0:
+        wrap_around_regulator += 2 * math.pi
+
+    a = (6378.1**2 * wrap_around_regulator * abs(math.sin(deg_con(gr.hi_lat)) - math.sin(deg_con(gr.lo_lat))))
     return a
+
+def emissions_per_square_km(rc:RegionCondition) -> float:
+    pass
